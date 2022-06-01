@@ -10,23 +10,17 @@ package com.mycompany.trabalhodeoo;
  */
 public class Pessoa {
 
-    private String cpf;
-    private String nome;
-    private String telefone;
-    private String endereco;
+    protected String nome;
+    protected String telefone;
+    protected String endereco;
 
     
     public Pessoa()
     {
-       this.cpf = "";
        this.nome = "";
        this.telefone = "";
        this.endereco = "";
        
-    }
-    
-    public void leCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public void leNome(String nome) {
@@ -39,10 +33,6 @@ public class Pessoa {
 
     public void leEndereco(String endereco) {
         this.endereco = endereco;
-    }
-    
-    public String getCpf() {
-        return this.cpf;
     }
 
     public String getNome() {
