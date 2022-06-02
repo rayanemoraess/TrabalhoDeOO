@@ -23,15 +23,15 @@ public class Produto {
        this.preco = 0;       
     }
     
-    public void leIdProduto(int idProduto) {
+    public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
     }
 
-    public void leNomeProduto(String nomeProduto) {
+    public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
 
-    public void lePreco(float preco) {
+    public void setPreco(float preco) {
         this.preco = preco;
     }
 

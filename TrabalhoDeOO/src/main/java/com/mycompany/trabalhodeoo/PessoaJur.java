@@ -6,8 +6,8 @@ package com.mycompany.trabalhodeoo;
 
 /**
  *
- * @author pense_4bc3gvu
+ * @author pedro
  */
-public class PessoaFis extends Pessoa {
-    private String cpf;
+public class PessoaJur extends Pessoa {
+    private String cnpj;
 }

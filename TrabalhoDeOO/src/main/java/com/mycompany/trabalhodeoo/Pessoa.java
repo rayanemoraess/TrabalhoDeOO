@@ -12,26 +12,25 @@ public class Pessoa {
 
     protected String nome;
     protected String telefone;
-    protected String endereco;
+    protected Endereco endereco;
 
     
     public Pessoa()
     {
        this.nome = "";
        this.telefone = "";
-       this.endereco = "";
-       
+       this.endereco = new Endereco();
     }
 
-    public void leNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void leTelefone(String telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public void leEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -43,7 +42,7 @@ public class Pessoa {
         return this.telefone;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return this.endereco;
     }
 }

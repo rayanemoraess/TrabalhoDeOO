@@ -24,4 +24,49 @@ public class Endereco {
         this.estado = "";
     }
     
+    public void setRua(String rua){
+        this.rua = rua;
+    }
+    
+    public void setBairro(String bairro)
+    {
+        this.bairro = bairro;
+    }
+    
+    public void setNumero(String numero)
+    {
+        this.numero = numero;
+    }
+    
+    public void setCidade(String cidade)
+    {
+        this.cidade = cidade;
+    }
+    
+    public void setEstado(String estado)
+    {
+        this.estado = estado;
+    }
+    
+    public String getRua() {
+        return this.rua;
+    }
+    
+    public String getBairro() {
+        return this.bairro;
+    }
+    
+    public String getNumero() {
+        return this.numero;
+    }
+    
+    public String getCidade() {
+        return this.cidade;
+    }
+    
+    public String getEstado() {
+        return this.estado;
+    }
+
+    
 }

@@ -1,7 +1,7 @@
 package com.mycompany.trabalhodeoo;
 
 
-import java.util.List;
+import java.util.*;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,6 +13,20 @@ import java.util.List;
  * @author pense_4bc3gvu
  */
 public class Estoque {
-    private List<Produto> listaDeProdutos;
-    private int qtdeProduto;
+    private Map<Produto,Integer> listaDeProdutos;
+    
+    public Estoque(){
+        this.listaDeProdutos = new HashMap<>();
+    }
+    
+    public void setListaDeProdutos(Produto produto, int qtd)
+    {
+        this.listaDeProdutos.put(produto, qtd);
+    }
+    
+    public Map<Produto,Integer> getListaDeProdutos()
+    {
+        return this.listaDeProdutos;
+    }
+    
 }
