@@ -17,7 +17,7 @@ import java.text.DecimalFormat;
  */
 
 public class TrabalhoDeOO {
-
+    /*
     public static void cadastroEndereco(Endereco endereco) {
         Scanner teclado = new Scanner(System.in);
         System.out.print("Digite o endereco: ");
@@ -101,7 +101,7 @@ public class TrabalhoDeOO {
             System.out.println("Id do produto: " + product.getIdProduto());
             System.out.println("Nome do produto: " + product.getNomeProduto());
             System.out.println("Preco: R$" + df.format(product.getPreco()));
-        }*/
+        }
         return produto;
     }
     
@@ -128,13 +128,13 @@ public class TrabalhoDeOO {
 
         }
     }
+    */
 
     public static void main(String[] args) {
         //cadastroPessoa();
         //cadastroEstoque();
         Cadastro cadastro = new Cadastro();
-        
-        Cadastro.cdEstoque();
+        Cadastro.cdPedido();
     }
 
 }

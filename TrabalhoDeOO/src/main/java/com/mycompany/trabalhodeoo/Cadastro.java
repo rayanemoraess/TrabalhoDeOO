@@ -39,10 +39,10 @@ public class Cadastro {
         return produto;
     }
 
-    public static int defQuantidade(String nomeProduto) {
+    public static String defQuantidade(String nomeProduto) {
         Scanner teclado = new Scanner(System.in);
         System.out.print("Digite a quantidade do produto (" + nomeProduto + "): ");
-        return teclado.nextInt();
+        return teclado.nextLine();
     }
 
     public static void cdEstoque() {
@@ -59,6 +59,97 @@ public class Cadastro {
                     + "\nPreco: R$" + df.format(product.getPreco()) + "\nQuantidade: " + estoque.getListaDeProdutos().get(product));
 
         }
+    }
+    
+    public static void cdEndereco(Endereco endereco) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Digite o endereco: ");
+        System.out.println("");
+        System.out.println("Digite a Rua: ");
+        endereco.setRua(teclado.nextLine());
+        System.out.println("Digite o bairro: ");
+        endereco.setBairro(teclado.nextLine());
+        System.out.println("Digite o numero: ");
+        endereco.setNumero(teclado.nextLine());
+        System.out.println("Digite a cidade: ");
+        endereco.setCidade(teclado.nextLine());
+        System.out.println("Digite o estado: ");
+        endereco.setEstado(teclado.nextLine());
+    }
+
+    public static void verifTipoPessoa(){
+        Scanner teclado = new Scanner(System.in);
+        String cpfCnpj = teclado.nextLine();
+        if(cpfCnpj.length() == 11)
+        {
+            PessoaFis t = new PessoaFis();
+        }
+        else
+        {
+            PessoaJur t = new PessoaJur();
+        }
+    }
+    
+    public static void cdPessoa() {
+        System.out.println("Cadastrando Pessoas... ");
+        verifTipoPessoa();
+        Scanner teclado = new Scanner(System.in);
+        String cpfCnpj = teclado.nextLine();
+        
+        List<Pessoa> pessoas = new ArrayList<>();
+        String nome;
+        String telefone;
+        Endereco endereco = new Endereco();
+        Pessoa pessoa = new Pessoa();
+
+        //for (int i = 0; i < 1; i++) {
+            System.out.print("Digite o nome da pessoa: ");
+            nome = teclado.nextLine();
+            pessoa.setNome(nome);
+            System.out.print("Digite o telefone da pessoa: ");
+            telefone = teclado.nextLine();
+            pessoa.setTelefone(telefone);
+            cdEndereco(endereco);
+            pessoa.setEndereco(endereco);
+            pessoas.add(pessoa);
+            pessoa = new Pessoa();
+            endereco = new Endereco();
+        //}
+
+        for (Pessoa person : pessoas) {
+            System.out.println("Nome: " + person.getNome());
+            System.out.println("Telefone: " + person.getTelefone());
+            endereco = person.getEndereco();
+            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
+                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
+                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
+        }
+
+    }
+    
+    public static void cdPedido()
+    {
+        Pedido pedido = new Pedido();
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Digite o id do Pedido: ");
+        pedido.setIdPedido(teclado.nextLine());
+        
+        DecimalFormat df = new DecimalFormat("#,###.00");
+        Produto produto = new Produto();
+        for (int i = 0; i < 2; i++) {
+            produto = cdProduto();
+            pedido.setListaProdComprados(produto, defQuantidade(produto.getNomeProduto()));
+        }
+
+        pedido.setValorTotal();
+        System.out.println("Valor total do Pedido: R$" + df.format(pedido.getValorTotal()));
+        pedido.FormaPgto();
+        System.out.print("Digite a forma de pagamento: ");
+        pedido.setFormaPgto(teclado.nextLine());
+        System.out.println("-----Nota Fiscal-----");
+        System.out.println("Id do pedido: " + pedido.getIdPedido());
+        System.out.println("Forma de pagamento: " + pedido.getFormaPgto());
+        System.out.println("Valor Total: R$" + df.format(pedido.getValorTotal()));
     }
 
 }

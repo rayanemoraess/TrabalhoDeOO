@@ -10,4 +10,20 @@ package com.mycompany.trabalhodeoo;
  */
 public class PessoaFis extends Pessoa {
     private String cpf;
+    
+    public PessoaFis()
+    {
+        this.cpf = "";
+    }
+    
+    public void setCpf(String cpf)
+    {
+        this.cpf = cpf;
+    }
+    
+    public String getCpf()
+    {
+        return this.cpf;
+    }
+    
 }

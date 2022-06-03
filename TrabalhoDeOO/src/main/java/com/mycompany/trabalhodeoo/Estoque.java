@@ -13,18 +13,18 @@ import java.util.*;
  * @author pense_4bc3gvu
  */
 public class Estoque {
-    private Map<Produto,Integer> listaDeProdutos;
+    private Map<Produto,String> listaDeProdutos;
     
     public Estoque(){
         this.listaDeProdutos = new HashMap<>();
     }
     
-    public void setListaDeProdutos(Produto produto, int qtd)
+    public void setListaDeProdutos(Produto produto, String qtd)
     {
         this.listaDeProdutos.put(produto, qtd);
     }
     
-    public Map<Produto,Integer> getListaDeProdutos()
+    public Map<Produto,String> getListaDeProdutos()
     {
         return this.listaDeProdutos;
     }
