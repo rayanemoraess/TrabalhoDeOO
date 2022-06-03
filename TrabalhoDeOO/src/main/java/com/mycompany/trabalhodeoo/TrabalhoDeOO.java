@@ -131,7 +131,10 @@ public class TrabalhoDeOO {
 
     public static void main(String[] args) {
         //cadastroPessoa();
-        cadastroEstoque();
+        //cadastroEstoque();
+        Cadastro cadastro = new Cadastro();
+        
+        Cadastro.cdEstoque();
     }
 
 }
