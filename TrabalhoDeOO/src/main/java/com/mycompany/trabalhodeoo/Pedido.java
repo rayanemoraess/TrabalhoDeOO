@@ -66,7 +66,7 @@ public class Pedido {
 
     public void setValorTotal() {
         for (Produto product : getListaProdComprados().keySet()){
-            this.valorTotal += product.getPreco() * Integer.parseInt(this.listaProdComprados.get(product));
+            this.valorTotal += Float.parseFloat(product.getPreco()) * Integer.parseInt(this.listaProdComprados.get(product));
         }
     }
     

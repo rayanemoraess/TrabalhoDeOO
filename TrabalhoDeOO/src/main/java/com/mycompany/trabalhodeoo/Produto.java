@@ -12,18 +12,18 @@ package com.mycompany.trabalhodeoo;
  */
 public class Produto {
     
-    private int idProduto;
+    private String idProduto;
     private String nomeProduto;
-    private float preco;  
+    private String preco;  
     
     public Produto()
     {
-       this.idProduto = 0;
+       this.idProduto = "";
        this.nomeProduto = "";
-       this.preco = 0;       
+       this.preco = "";       
     }
     
-    public void setIdProduto(int idProduto) {
+    public void setIdProduto(String idProduto) {
         this.idProduto = idProduto;
     }
 
@@ -31,11 +31,11 @@ public class Produto {
         this.nomeProduto = nomeProduto;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 
-    public int getIdProduto() {
+    public String getIdProduto() {
         return this.idProduto;
     }
 
@@ -43,7 +43,7 @@ public class Produto {
        return this.nomeProduto;
     }
 
-    public float getPreco() {
+    public String getPreco() {
         return this.preco;
     }
 

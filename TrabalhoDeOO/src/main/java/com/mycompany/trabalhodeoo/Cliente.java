@@ -14,5 +14,16 @@ public class Cliente extends Pessoa {
     
     public Cliente(String _nome, String _telefone, Endereco _endereco) {
 		super(_nome, _telefone, _endereco);
+                this.tipoCliente = "";
     }
+    
+    public void setTipo(String tipoCliente){
+        this.tipoCliente = tipoCliente;
+    }
+    
+    public String getTipo(){
+        return this.tipoCliente;
+    } 
+
+    
 }
