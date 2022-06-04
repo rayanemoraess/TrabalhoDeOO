@@ -11,10 +11,11 @@ package com.mycompany.trabalhodeoo;
 public class PessoaFis extends Pessoa {
     private String cpf;
     
-    public PessoaFis()
-    {
-        this.cpf = "";
+    public PessoaFis(String _nome, String _telefone, Endereco _endereco) {
+		super(_nome, _telefone, _endereco);
+                this.cpf = "";
     }
+    
     
     public void setCpf(String cpf)
     {

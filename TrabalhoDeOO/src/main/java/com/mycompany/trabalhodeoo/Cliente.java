@@ -11,4 +11,8 @@ package com.mycompany.trabalhodeoo;
  */
 public class Cliente extends Pessoa {
     private String tipoCliente;
+    
+    public Cliente(String _nome, String _telefone, Endereco _endereco) {
+		super(_nome, _telefone, _endereco);
+    }
 }

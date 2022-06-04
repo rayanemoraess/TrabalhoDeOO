@@ -131,10 +131,10 @@ public class TrabalhoDeOO {
     */
 
     public static void main(String[] args) {
-        //cadastroPessoa();
         //cadastroEstoque();
         Cadastro cadastro = new Cadastro();
-        Cadastro.cdPedido();
+        Cadastro.cdPessoa();
+        //Cadastro.cdPedido();
     }
 
 }

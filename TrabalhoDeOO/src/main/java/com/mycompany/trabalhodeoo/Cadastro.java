@@ -76,26 +76,89 @@ public class Cadastro {
         System.out.println("Digite o estado: ");
         endereco.setEstado(teclado.nextLine());
     }
+    
+    public static void cdPessoaFis(String cpfCnpj){
+        System.out.println("Cadastrando Pessoa Fisica: ");
+        Scanner teclado = new Scanner(System.in);
+        List<PessoaFis> pessoas = new ArrayList<>();
+        String nome;
+        String telefone;
+        Endereco endereco = new Endereco();
+        System.out.print("Digite o nome da pessoa: ");
+        nome = teclado.nextLine();
+        System.out.print("Digite o telefone da pessoa: ");
+        telefone = teclado.nextLine();
+        PessoaFis pessoaFis = new PessoaFis(nome, telefone, new Endereco());
+        pessoaFis.setCpf(cpfCnpj);
+        pessoaFis.setNome(nome);
+        pessoaFis.setTelefone(telefone);
+        cdEndereco(endereco);
+        pessoaFis.setEndereco(endereco);
+        pessoas.add(pessoaFis);
+        //nome = "";
+        //telefone = "";
+        //endereco = new Endereco();
+        //pessoaFis = new PessoaFis(nome, telefone, new Endereco());
+        
+        for (PessoaFis person : pessoas) {
+            System.out.println("Nome: " + person.getNome());
+            System.out.println("Telefone: " + person.getTelefone());
+            endereco = person.getEndereco();
+            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
+                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
+                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
+        }
+        
+        
+    }
+    
+    public static void cdPessoaJur(String cpfCnpj){
+        System.out.println("Cadastrando Pessoa Juridica: ");
+        Scanner teclado = new Scanner(System.in);
+        List<PessoaJur> pessoas = new ArrayList<>();
+        String nome;
+        String telefone;
+        Endereco endereco = new Endereco();
+        System.out.print("Digite o nome da pessoa: ");
+        nome = teclado.nextLine();
+        System.out.print("Digite o telefone da pessoa: ");
+        telefone = teclado.nextLine();
+        PessoaJur pessoaJur = new PessoaJur(nome, telefone, new Endereco());
+        pessoaJur.setCnpj(cpfCnpj);
+        pessoaJur.setNome(nome);
+        pessoaJur.setTelefone(telefone);
+        cdEndereco(endereco);
+        pessoaJur.setEndereco(endereco);
+        pessoas.add(pessoaJur);
+        //nome = "";
+        //telefone = "";
+        //endereco = new Endereco();
+        //pessoaFis = new PessoaFis(nome, telefone, new Endereco());
+        
+        for (PessoaJur person : pessoas) {
+            System.out.println("Nome: " + person.getNome());
+            System.out.println("Telefone: " + person.getTelefone());
+            endereco = person.getEndereco();
+            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
+                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
+                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
+        }
+    }
 
     public static void verifTipoPessoa(){
         Scanner teclado = new Scanner(System.in);
+        System.out.print("Digite o cpf ou cnpj: ");
         String cpfCnpj = teclado.nextLine();
         if(cpfCnpj.length() == 11)
-        {
-            PessoaFis t = new PessoaFis();
-        }
-        else
-        {
-            PessoaJur t = new PessoaJur();
-        }
+            cdPessoaFis(cpfCnpj);
+        else if(cpfCnpj.length() == 14)
+            cdPessoaJur(cpfCnpj);
     }
     
     public static void cdPessoa() {
         System.out.println("Cadastrando Pessoas... ");
         verifTipoPessoa();
-        Scanner teclado = new Scanner(System.in);
-        String cpfCnpj = teclado.nextLine();
-        
+        /*
         List<Pessoa> pessoas = new ArrayList<>();
         String nome;
         String telefone;
@@ -125,6 +188,7 @@ public class Cadastro {
                     + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
         }
 
+    */
     }
     
     public static void cdPedido()

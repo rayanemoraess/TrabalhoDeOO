@@ -10,4 +10,17 @@ package com.mycompany.trabalhodeoo;
  */
 public class PessoaJur extends Pessoa {
     private String cnpj;
+    
+    public PessoaJur(String _nome, String _telefone, Endereco _endereco) {
+		super(_nome, _telefone, _endereco);
+                this.cnpj = "";
+    }
+    
+    public void setCnpj(String cnpj){
+        this.cnpj = cnpj;
+    }
+    
+    public String getCnpj(){
+        return this.cnpj;
+    }
 }

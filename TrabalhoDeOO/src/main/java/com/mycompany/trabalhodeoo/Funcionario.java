@@ -12,4 +12,8 @@ package com.mycompany.trabalhodeoo;
  */
 public class Funcionario extends Pessoa {
     private String tipoFuncionario;
+    
+    public Funcionario(String _nome, String _telefone, Endereco _endereco) {
+		super(_nome, _telefone, _endereco);
+    }
 }

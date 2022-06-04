@@ -15,7 +15,7 @@ public class Pessoa {
     protected Endereco endereco;
 
     
-    public Pessoa()
+    public Pessoa(String _nome, String _telefone, Endereco _endereco)
     {
        this.nome = "";
        this.telefone = "";
