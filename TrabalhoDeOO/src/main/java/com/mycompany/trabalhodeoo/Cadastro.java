@@ -160,10 +160,10 @@ public class Cadastro {
         endereco.setEstado(aux);
     }
 
-    public static void cdPessoaFis(String cpfCnpj) {
+    public static PessoaFis cdPessoaFis(String cpfCnpj) {
         System.out.println("Cadastrando Pessoa Fisica: ");
         Scanner teclado = new Scanner(System.in);
-        List<PessoaFis> pessoas = new ArrayList<>();
+        //List<PessoaFis> pessoas = new ArrayList<>();
         String nome, telefone;
 
         Endereco endereco = new Endereco();
@@ -184,22 +184,23 @@ public class Cadastro {
         pessoaFis.setTelefone(telefone);
         cdEndereco(endereco);
         pessoaFis.setEndereco(endereco);
-        pessoas.add(pessoaFis);
+        //pessoas.add(pessoaFis);
 
-        for (PessoaFis person : pessoas) {
+        /*for (PessoaFis person : pessoas) {
             System.out.println("Nome: " + person.getNome());
             System.out.println("Telefone: " + person.getTelefone());
             endereco = person.getEndereco();
             System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
                     + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
                     + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
-        }
+        }*/
+        return pessoaFis;
     }
 
-    public static void cdPessoaJur(String cpfCnpj) {
+    public static PessoaJur cdPessoaJur(String cpfCnpj) {
         System.out.println("Cadastrando Pessoa Juridica: ");
         Scanner teclado = new Scanner(System.in);
-        List<PessoaJur> pessoas = new ArrayList<>();
+        //List<PessoaJur> pessoas = new ArrayList<>();
         String nome, telefone;
         Endereco endereco = new Endereco();
 
@@ -219,56 +220,50 @@ public class Cadastro {
         pessoaJur.setTelefone(telefone);
         cdEndereco(endereco);
         pessoaJur.setEndereco(endereco);
-        pessoas.add(pessoaJur);
+        //pessoas.add(pessoaJur);
 
-        for (PessoaJur person : pessoas) {
+        /*for (PessoaJur person : pessoas) {
             System.out.println("Nome: " + person.getNome());
             System.out.println("Telefone: " + person.getTelefone());
             endereco = person.getEndereco();
             System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
                     + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
                     + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
-        }
+        }*/
+        return pessoaJur;
     }
 
-    public static void verifTipoPessoa() {
+    public static boolean verifTipoPessoa(String cpfCnpj) {
         Scanner teclado = new Scanner(System.in);
-        System.out.print("Digite o cpf ou cnpj: ");
-        String cpfCnpj = teclado.nextLine();
-        boolean aux = false;
 
         if (cpfCnpj.length() == 11) {
             if (verificaNum(cpfCnpj)) {
-                aux = true;
-                cdPessoaFis(cpfCnpj);
+                return true;
             }
         } else if (cpfCnpj.length() == 14) {
             if (verificaNum(cpfCnpj)) {
-                aux = true;
-                cdPessoaJur(cpfCnpj);
+                return false;
             }
         }
 
-        while (cpfCnpj.length() != 11 || cpfCnpj.length() != 14 && aux == false) {
+        while (cpfCnpj.length() != 11 || cpfCnpj.length() != 14) {
             System.out.println("CPF ou CNPJ invalido...");
             System.out.print("Digite o cpf ou cnpj: ");
             cpfCnpj = teclado.nextLine();
             if (cpfCnpj.length() == 11) {
                 if (verificaNum(cpfCnpj)) {
-                    aux = true;
-                    cdPessoaFis(cpfCnpj);
+                    return true;
                 }
             } else if (cpfCnpj.length() == 14) {
                 if (verificaNum(cpfCnpj)) {
-                    aux = true;
-                    cdPessoaJur(cpfCnpj);
+                    return false;
                 }
             }
         }
-
+        return false;
     }
 
-    public static void cdPessoa() {
+    /*public static void cdPessoa() {
         System.out.println("Cadastrando Pessoas... ");
         Scanner teclado = new Scanner (System.in);
         String op = "";
@@ -283,8 +278,7 @@ public class Cadastro {
         }while(op.equals("s"));
 
         
-    }
-
+    }*/
     public static void cdPedido() {
         System.out.println("Registrando pedido...");
         Pedido pedido = new Pedido();
@@ -326,4 +320,140 @@ public class Cadastro {
         System.out.println("Valor Total: R$" + pedido.getValorTotal());
     }
 
+    public static String tipoFunc() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Digite o tipo do funcionario: ");
+        String tipoFunc = teclado.nextLine();
+
+        while (!verificaSoLetra(tipoFunc)) {
+            System.out.println("Tipo invalido...");
+            System.out.print("Digite o tipo do funcionario: ");
+            tipoFunc = teclado.nextLine();
+        }
+
+        return tipoFunc;
+    }
+
+    public static void cdFuncionario() {
+        Endereco endereco = new Endereco();
+        Funcionario funcionarios = new Funcionario("", "", endereco);
+        System.out.println("Cadastrando Funcionarios... ");
+        Scanner teclado = new Scanner(System.in);
+        String op = "";
+        String cpfCnpj;
+
+        do {
+            System.out.print("Digite o cpf ou cnpj: ");
+            cpfCnpj = teclado.nextLine();
+            if (verifTipoPessoa(cpfCnpj)) {
+                funcionarios.setListaFuncsPessoasFisicas(cdPessoaFis(cpfCnpj), tipoFunc());
+            } else {
+                funcionarios.setListaFuncsPessoasJuridicas(cdPessoaJur(cpfCnpj), tipoFunc());
+            }
+
+            System.out.println("Deseja cadastrar um funcionario? ");
+            do {
+                System.out.print("Digite 's' para sim ou 'n' para nao: ");
+                op = teclado.nextLine();
+            } while (!(op.equals("s") || op.equals("n")));
+        } while (op.equals("s"));
+
+        System.out.println("Funcionarios de pessoas fisicas: ");
+        System.out.println("");
+
+        for (PessoaFis personFis : funcionarios.getListaFuncsPessoasFisicas().keySet()) {
+            System.out.println("CPF: " + personFis.getCpf());
+            System.out.println("Nome: " + personFis.getNome());
+            System.out.println("Telefone: " + personFis.getTelefone());
+            endereco = personFis.getEndereco();
+            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
+                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
+                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado()
+                    + "\nTipo: " + funcionarios.getListaFuncsPessoasFisicas().get(personFis) + "\n");
+        }
+
+        System.out.println("");
+        System.out.println("Funcionarios de pessoas juridicas: ");
+        System.out.println("");
+
+        for (PessoaJur personJur : funcionarios.getListaFuncsPessoasJuridicas().keySet()) {
+            System.out.println("CNPJ: " + personJur.getCnpj());
+            System.out.println("Nome: " + personJur.getNome());
+            System.out.println("Telefone: " + personJur.getTelefone());
+            endereco = personJur.getEndereco();
+            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
+                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
+                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado()
+                    + "\nTipo: " + funcionarios.getListaFuncsPessoasJuridicas().get(personJur) + "\n");
+        }
+    }
+
+    public static String tipoCliente() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Digite o tipo do cliente: ");
+        String tipoCliente = teclado.nextLine();
+
+        while (!verificaSoLetra(tipoCliente)) {
+            System.out.println("Tipo invalido...");
+            System.out.print("Digite o tipo do cliente: ");
+            tipoCliente = teclado.nextLine();
+        }
+
+        return tipoCliente;
+    }
+    
+    public static void cdCliente() {
+        Endereco endereco = new Endereco();
+        Cliente clientes = new Cliente("", "", endereco);
+        System.out.println("Cadastrando Clientes... ");
+        Scanner teclado = new Scanner(System.in);
+        String op = "";
+        String cpfCnpj;
+
+        do {
+            System.out.print("Digite o cpf ou cnpj: ");
+            cpfCnpj = teclado.nextLine();
+            if (verifTipoPessoa(cpfCnpj)) {
+                clientes.setListaClientesPessoasFisicas(cdPessoaFis(cpfCnpj), tipoCliente());
+            } else {
+                clientes.setListaClientesPessoasJuridicas(cdPessoaJur(cpfCnpj), tipoCliente());
+            }
+
+            System.out.println("Deseja cadastrar mais um cliente? ");
+            do {
+                System.out.print("Digite 's' para sim ou 'n' para nao: ");
+                op = teclado.nextLine();
+            } while (!(op.equals("s") || op.equals("n")));
+        } while (op.equals("s"));
+
+        System.out.println("Funcionarios de pessoas fisicas: ");
+        System.out.println("");
+
+        for (PessoaFis personFis : clientes.getListaClientesPessoasFisicas().keySet()) {
+            System.out.println("CPF: " + personFis.getCpf());
+            System.out.println("Nome: " + personFis.getNome());
+            System.out.println("Telefone: " + personFis.getTelefone());
+            endereco = personFis.getEndereco();
+            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
+                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
+                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado()
+                    + "\nTipo: " + clientes.getListaClientesPessoasFisicas().get(personFis) + "\n");
+        }
+
+        System.out.println("");
+        System.out.println("Funcionarios de pessoas juridicas: ");
+        System.out.println("");
+
+        for (PessoaJur personJur : clientes.getListaClientesPessoasJuridicas().keySet()) {
+            System.out.println("CNPJ: " + personJur.getCnpj());
+            System.out.println("Nome: " + personJur.getNome());
+            System.out.println("Telefone: " + personJur.getTelefone());
+            endereco = personJur.getEndereco();
+            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
+                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
+                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado()
+                    + "\nTipo: " + clientes.getListaClientesPessoasJuridicas().get(personJur) + "\n");
+        }
+    }
+    
 }

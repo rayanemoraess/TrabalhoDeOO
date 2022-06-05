@@ -21,7 +21,9 @@ public class TrabalhoDeOO {
     public static void main(String[] args) {
         //cadastroEstoque();
         Cadastro cadastro = new Cadastro();
-        Cadastro.cdPessoa();
+        //Cadastro.cdFuncionario();
+        Cadastro.cdCliente();
+        //Cadastro.cdPessoa();
         //Cadastro.cdProduto();
         //Cadastro.cdEndereco();
         //Cadastro.cdPedido();

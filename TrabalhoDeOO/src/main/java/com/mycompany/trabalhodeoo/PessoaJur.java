@@ -9,7 +9,7 @@ package com.mycompany.trabalhodeoo;
  * @author pedro
  */
 public class PessoaJur extends Pessoa {
-    private String cnpj;
+    protected String cnpj;
     
     public PessoaJur(String _nome, String _telefone, Endereco _endereco) {
 		super(_nome, _telefone, _endereco);

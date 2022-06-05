@@ -9,7 +9,7 @@ package com.mycompany.trabalhodeoo;
  * @author pense_4bc3gvu
  */
 public class PessoaFis extends Pessoa {
-    private String cpf;
+    protected String cpf;
     
     public PessoaFis(String _nome, String _telefone, Endereco _endereco) {
 		super(_nome, _telefone, _endereco);
