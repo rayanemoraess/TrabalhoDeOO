@@ -20,7 +20,7 @@ public class Cadastro {
         }
         try {
             Double.parseDouble(numero);
-            if (Double.parseDouble(numero) > 0) {
+            if(Double.parseDouble(numero) > 0) {
                 return true;
             } else {
                 return false;
@@ -95,6 +95,7 @@ public class Cadastro {
     }
 
     public static void cdEstoque() {
+        System.out.println("");
         System.out.println("Acessando Estoque...");
         Scanner teclado = new Scanner(System.in);
         Estoque estoque = new Estoque();
@@ -121,31 +122,31 @@ public class Cadastro {
     public static void cdEndereco(Endereco endereco) {
         Scanner teclado = new Scanner(System.in);
         String aux;
-        System.out.print("Digite o endereco: ");
+        System.out.print("-----Digite o endereco-----");
         System.out.println("");
         do {
-            System.out.println("Digite a Rua: ");
+            System.out.print("Digite a Rua: ");
             aux = teclado.nextLine();
         } while (!verificaSoLetra(aux));
 
         endereco.setRua(aux);
 
         do {
-            System.out.println("Digite o bairro: ");
+            System.out.print("Digite o bairro: ");
             aux = teclado.nextLine();
         } while (!verificaSoLetra(aux));
 
         endereco.setBairro(aux);
 
         do {
-            System.out.println("Digite o numero: ");
+            System.out.print("Digite o numero: ");
             aux = teclado.nextLine();
         } while (!verificaNum(aux));
 
         endereco.setNumero(aux);
 
         do {
-            System.out.println("Digite a cidade: ");
+            System.out.print("Digite a cidade: ");
             aux = teclado.nextLine();
             verificaSoLetra(aux);
         } while (!verificaSoLetra(aux));
@@ -153,7 +154,7 @@ public class Cadastro {
         endereco.setCidade(aux);
 
         do {
-            System.out.println("Digite o estado: ");
+            System.out.print("Digite o estado: ");
             aux = teclado.nextLine();
         } while (!verificaSoLetra(aux));
 
@@ -161,9 +162,8 @@ public class Cadastro {
     }
 
     public static PessoaFis cdPessoaFis(String cpfCnpj) {
-        System.out.println("Cadastrando Pessoa Fisica: ");
+        System.out.println("-----Cadastrando Pessoa Fisica-----");
         Scanner teclado = new Scanner(System.in);
-        //List<PessoaFis> pessoas = new ArrayList<>();
         String nome, telefone;
 
         Endereco endereco = new Endereco();
@@ -184,23 +184,12 @@ public class Cadastro {
         pessoaFis.setTelefone(telefone);
         cdEndereco(endereco);
         pessoaFis.setEndereco(endereco);
-        //pessoas.add(pessoaFis);
-
-        /*for (PessoaFis person : pessoas) {
-            System.out.println("Nome: " + person.getNome());
-            System.out.println("Telefone: " + person.getTelefone());
-            endereco = person.getEndereco();
-            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
-                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
-                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
-        }*/
         return pessoaFis;
     }
 
     public static PessoaJur cdPessoaJur(String cpfCnpj) {
-        System.out.println("Cadastrando Pessoa Juridica: ");
+        System.out.println("-----Cadastrando Pessoa Juridica-----");
         Scanner teclado = new Scanner(System.in);
-        //List<PessoaJur> pessoas = new ArrayList<>();
         String nome, telefone;
         Endereco endereco = new Endereco();
 
@@ -220,16 +209,6 @@ public class Cadastro {
         pessoaJur.setTelefone(telefone);
         cdEndereco(endereco);
         pessoaJur.setEndereco(endereco);
-        //pessoas.add(pessoaJur);
-
-        /*for (PessoaJur person : pessoas) {
-            System.out.println("Nome: " + person.getNome());
-            System.out.println("Telefone: " + person.getTelefone());
-            endereco = person.getEndereco();
-            System.out.println("Endereco: \n" + "Rua: " + endereco.getRua()
-                    + "\nBairro: " + endereco.getBairro() + "\nNumero: " + endereco.getNumero()
-                    + "\nCidade: " + endereco.getCidade() + "\nEstado: " + endereco.getEstado());
-        }*/
         return pessoaJur;
     }
 
@@ -263,23 +242,8 @@ public class Cadastro {
         return false;
     }
 
-    /*public static void cdPessoa() {
-        System.out.println("Cadastrando Pessoas... ");
-        Scanner teclado = new Scanner (System.in);
-        String op = "";
-        
-        do{
-            verifTipoPessoa();
-            System.out.println("Deseja cadastrar mais uma pessoa? ");
-            do {
-                System.out.print("Digite 's' para sim ou 'n' para nao: ");
-                op = teclado.nextLine();
-            } while (!(op.equals("s") || op.equals("n")));
-        }while(op.equals("s"));
-
-        
-    }*/
     public static void cdPedido() {
+        System.out.println("");
         System.out.println("Registrando pedido...");
         Pedido pedido = new Pedido();
         Scanner teclado = new Scanner(System.in);
