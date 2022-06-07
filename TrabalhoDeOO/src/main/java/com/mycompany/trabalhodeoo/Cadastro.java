@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author carlo
  */
-public class Cadastro {
+public class Cadastro { 
 
     public static boolean verificaNum(String numero) {
 
