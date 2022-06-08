@@ -17,7 +17,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>fully.qualified.MainClass</mainClass>
+                            <mainClass>com.mycompany.trabalhodeoo.TrabalhoDeOO</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
