@@ -390,7 +390,7 @@ public class Cadastro {
             } while (!(op.equals("s") || op.equals("n")));
         } while (op.equals("s"));
 
-        System.out.println("Funcionarios de pessoas fisicas: ");
+        System.out.println("Clientes de pessoas fisicas: ");
         System.out.println("");
 
         for (PessoaFis personFis : clientes.getListaClientesPessoasFisicas().keySet()) {
@@ -405,7 +405,7 @@ public class Cadastro {
         }
 
         System.out.println("");
-        System.out.println("Funcionarios de pessoas juridicas: ");
+        System.out.println("Clientes de pessoas juridicas: ");
         System.out.println("");
 
         for (PessoaJur personJur : clientes.getListaClientesPessoasJuridicas().keySet()) {
