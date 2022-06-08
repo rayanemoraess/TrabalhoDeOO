@@ -4,6 +4,13 @@
  */
 package com.mycompany.trabalhodeoo;
 
+//Alunos:
+//Carlos Eduardo de Souza Duque - Matrícula: 202165502B
+//Carlos Gustavo Ferreira Rezende - Matrícula: 202065503B
+//Pedro de Araújo Bhering Bittencourt - Matrícula: 202165114A
+//Rayane Moraes da Silva - Matrícula: 201565565AC
+
+
 /**
  *
  * @author pense_4bc3gvu
