@@ -321,13 +321,14 @@ public class Cadastro {
                 funcionarios.setListaFuncsPessoasJuridicas(cdPessoaJur(cpfCnpj), tipoFunc());
             }
 
-            System.out.println("Deseja cadastrar um funcionario? ");
+            System.out.println("Deseja cadastrar mais um funcionario? ");
             do {
                 System.out.print("Digite 's' para sim ou 'n' para nao: ");
                 op = teclado.nextLine();
             } while (!(op.equals("s") || op.equals("n")));
         } while (op.equals("s"));
 
+        System.out.println("");
         System.out.println("Funcionarios de pessoas fisicas: ");
         System.out.println("");
 
@@ -396,6 +397,7 @@ public class Cadastro {
             } while (!(op.equals("s") || op.equals("n")));
         } while (op.equals("s"));
 
+        System.out.println("");
         System.out.println("Clientes de pessoas fisicas: ");
         System.out.println("");
 
