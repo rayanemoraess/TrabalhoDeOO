@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.trabalhodeoo;
+package Cadastros;
 
 //Alunos:
 //Carlos Eduardo de Souza Duque - Matrícula: 202165502B
@@ -10,6 +10,14 @@ package com.mycompany.trabalhodeoo;
 //Pedro de Araújo Bhering Bittencourt - Matrícula: 202165114A
 //Rayane Moraes da Silva - Matrícula: 201565565AC
 
+import com.mycompany.trabalhodeoo.Cliente;
+import com.mycompany.trabalhodeoo.Endereco;
+import com.mycompany.trabalhodeoo.Estoque;
+import com.mycompany.trabalhodeoo.Funcionario;
+import com.mycompany.trabalhodeoo.Pedido;
+import com.mycompany.trabalhodeoo.PessoaFis;
+import com.mycompany.trabalhodeoo.PessoaJur;
+import com.mycompany.trabalhodeoo.Produto;
 import java.util.*;
 
 /**

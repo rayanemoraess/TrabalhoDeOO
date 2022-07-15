@@ -10,7 +10,9 @@ package com.mycompany.trabalhodeoo;
 //Pedro de Araújo Bhering Bittencourt - Matrícula: 202165114A
 //Rayane Moraes da Silva - Matrícula: 201565565AC
 
+import Cadastros.*;
 import java.util.*;
+import InterfacesJFrame.*;
 /**
  *
  * @author pense_4bc3gvu
@@ -37,7 +39,9 @@ public class TrabalhoDeOO {
     
     public static void main(String[] args) {
         Cadastro cadastro = new Cadastro();
-
+       
+        AcessoConta acessoConta = new AcessoConta();
+            
         Scanner teclado = new Scanner(System.in);
         String op = "";
 
